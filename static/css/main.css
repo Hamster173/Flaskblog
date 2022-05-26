@@ -1,0 +1,49 @@
+body{
+	background-color: #DFD;
+	color: #333;
+	padding: 1vh 12vw;
+}
+
+#main{
+	border: 2px solid #DDD;
+	border-radius: 10px;
+	background-color: #FFF;
+	padding: 4vh 4vw;
+	padding-top: 10px;
+}
+
+a:hover{
+	opacity: 0.5;
+}
+
+h1{
+	border-bottom: 1px solid #333;
+}
+
+h2,h3,.title{
+	padding: 1vw;
+	border-radius: 10px;
+	border: 2px solid #DDD;
+	border-left: 10px solid #AFA;
+}
+
+.title{
+	list-style: none;
+	text-decoration: none;
+	margin: 2vh 0px;
+}
+
+.title_link{
+	text-decoration: none;
+	color:#333;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>検索結果</h1>
+    <p>検索キーワード:{{keyword}} ヒットした件数:{{posts | count}}</p>
+    <ul>
+        {% for post in posts %}
+        <a href="/{{post.id}}/view" class="title_link">
+            <li class="title">
+                <h1>{{post.title}}</h1>
+                <p>作成日時:{{post.created_at}}</p>
+            </li>
+        </a>
+        {% endfor %}
+    </ul>
+    <a href="{{url_for('index')}}">ホームへ</a>
+{% endblock %}

@@ -7,6 +7,7 @@ from datetime import datetime
 import pytz
 from flask_login import UserMixin,LoginManager,login_user,logout_user,login_required
 import os
+from sqlalchemy import null, or_
 from werkzeug.security import generate_password_hash,check_password_hash
 
 app = Flask(__name__)
@@ -75,6 +76,18 @@ def delete(id):
     db.session.delete(post)
     db.session.commit()
     return redirect("/")
+
+@app.route("/<int:id>/view",methods=["GET"])
+def view(id):
+    post = Post.query.get(id)
+    return render_template("view.html",post=post)
+
+@app.route("/search",methods=["GET"])
+def search():
+    keyword = request.args.get("keyword")
+    posts = Post.query.filter(or_(Post.title.contains(keyword),Post.body.contains(keyword))).all()
+    return render_template("search.html",posts=posts,keyword=keyword)
+
 
 @app.route("/signup",methods=["GET","POST"])
 def signup():
